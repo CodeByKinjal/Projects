@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://techcrunch.com/wp-content/uploads/2023/07/x-twitter.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+            animation: fadeIn 0.5s ease;
+            height: 50%;
+            width: 30%;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        p {
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="submit"],
+        input[type="radio"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus,
+        input[type="submit"]:focus,
+        input[type="radio"]:focus {
+            outline: none;
+            border-color: dodgerblue;
+        }
+        input[type="submit"] {
+            background-color: black;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        input[type="submit"]:hover {
+            background-color: grey;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+        .social-icons label {
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .social-icons input[type="radio"] {
+            display: none;
+        }
+        .social-icons .icon {
+            color: #ccc;
+            transition: all 0.3s ease;
+        }
+        .social-icons input[type="radio"]:checked + label .icon.instagram-icon {
+            color: #e4405f;
+        }
+        .social-icons input[type="radio"]:checked + label .icon.twitter-icon {
+            color: #1da1f2;
+        }
+        .social-icons input[type="radio"]:checked + label .icon.facebook-icon {
+            color: #3b5998;
+        }
+        @keyframes rotate {
+            from {
+                transform: rotateY(0);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+        .submit-btn:hover {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function msg(event) {
+            const inputField = document.getElementById('id');
+            const messageField = document.getElementById("demo1");
+            if (inputField.value.trim() === "") {
+                messageField.innerHTML = "Please enter X id.";
+                event.preventDefault(); // Prevent form submission
+            } else {
+                messageField.innerHTML = "This Account is fake.";
+            }
+        }
+    </script>
+    <div class="container">
+        <a href="index.html"><img src="Untitled__3_-removebg-preview.png" id="back" width="8%" height="8%"></a>
+        <center>
+            <img src="https://img.freepik.com/free-vector/twitter-new-2023-x-logo-white-background-vector_1017-45422.jpg" width="20%" height="20%">
+        </center>
+
+        <form action="#">
+            <p>Enter Your ID:</p>
+            <input type="text" id="id" name="id" placeholder="Enter your ID" required><br>
+
+            <input type="submit" value="Submit" class="submit-btn" onclick="msg(event)">
+            <p id="demo1"></p>
+        </form>
+    </div>
+</body>
+</html>
